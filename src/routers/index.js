@@ -13,6 +13,7 @@ import RepositoryPage from './../pages/repository'; // 项目详情页
 import MyPage from './../pages/my'; // My 我的
 import CustomKeyPage from './../pages/customKey'; // 自定义标签
 import SortKeyPage from './../pages/sortKey'; // 标签排序
+import DropDownPage from './../pages/dropdown'; // 标签排序
 
 
 const Tab = TabNavigator({
@@ -97,6 +98,9 @@ const Routers = StackNavigator({
   },
   SortKey: { // 标签排序
     screen: SortKeyPage,
+  },
+  DropDown: { // 标签排序
+    screen: DropDownPage,
   },
 }, {
   navigationOptions: {

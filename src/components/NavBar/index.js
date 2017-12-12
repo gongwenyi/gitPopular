@@ -33,6 +33,7 @@ export default class NavBar extends Component {
     rightBtnIcon: PropTypes.string, // 导航栏右侧按钮图标
     rightBtnIconStyle: Text.propTypes.style, // 导航栏右侧按钮图标样式
     rightBtnIconClick: PropTypes.func, // 导航栏右侧按钮图标点击事件
+    rightContent: PropTypes.element, // 导航栏右侧自定义内容
   };
 
   constructor(props) {
@@ -107,6 +108,9 @@ export default class NavBar extends Component {
               >
                 <Image source={this.props.rightBtnIcon} style={[styles.rightBtnIconStyle, this.props.rightBtnIconStyle]} />
               </TouchableOpacity>
+            }
+            {
+              this.props.rightContent && this.props.rightContent
             }
           </View>
         </View>

@@ -54,6 +54,11 @@ class Member extends Component {
             leftIcon={<IconFontAwesome name="random" size={18} color={NAVBAR_BACKGROUND_COLOR} />}
             leftLabel="标签排序"
           />
+          {/* <Cell
+            onPress={() => this._handlePress('DropDown')}
+            leftIcon={<IconFontAwesome name="random" size={18} color={NAVBAR_BACKGROUND_COLOR} />}
+            leftLabel="dropdown"
+          /> */}
         </ScrollView>
       </View>
     );
