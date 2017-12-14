@@ -87,7 +87,12 @@ class Talks extends Component {
                 onPress={() => this._handleBackClick()}
                 style={styles.fixedSectionBtn}
               >
-                <Image source={CommonImgs.back_arrow} />
+                {
+                  Platform.OS === 'ios' ?
+                    <Icon name="ios-arrow-back" size={30} color="#fff" />
+                    :
+                    <Icon name="md-arrow-back" size={30} color="#fff" />
+                }
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => {}}

@@ -13,8 +13,8 @@ import {
   ViewPropTypes,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { NAVBAR_BACKGROUND_COLOR } from './../../theme/color';
-import { CommonImgs } from './../../theme/images';
 import styles from './style';
 
 export default class NavBar extends Component {
@@ -88,7 +88,12 @@ export default class NavBar extends Component {
               onPress={() => this._handleBackClick()}
               style={styles.leftContainer}
             >
-              <Image source={CommonImgs.back_arrow} />
+              {
+                Platform.OS === 'ios' ?
+                  <Icon name="ios-arrow-back" size={30} color="#fff" />
+                  :
+                  <Icon name="md-arrow-back" size={30} color="#fff" />
+              }
             </TouchableOpacity>
           }
           {/* 右边按钮(可以是图标或文字) */}
