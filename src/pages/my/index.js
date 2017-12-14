@@ -45,6 +45,11 @@ class Member extends Component {
         />
         <ScrollView>
           <Cell
+            onPress={() => this._handlePress('AboutGitPopular')}
+            leftIcon={<Icon name="logo-github" size={22} color={NAVBAR_BACKGROUND_COLOR} />}
+            leftLabel="关于gitPopular"
+          />
+          <Cell
             onPress={() => this._handlePress('CustomKey')}
             leftIcon={<Icon name="md-pricetag" size={22} color={NAVBAR_BACKGROUND_COLOR} />}
             leftLabel="自定义标签"

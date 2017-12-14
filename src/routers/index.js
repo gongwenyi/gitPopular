@@ -11,6 +11,7 @@ import TrendingPage from './../pages/trending'; // Trending 趋势
 import FavoritePage from './../pages/favorite'; // Favorite 收藏
 import RepositoryPage from './../pages/repository'; // 项目详情页
 import MyPage from './../pages/my'; // My 我的
+import AboutGitPopularPage from './../pages/aboutGitPopular'; // 关于 gitPopular
 import CustomKeyPage from './../pages/customKey'; // 自定义标签
 import SortKeyPage from './../pages/sortKey'; // 标签排序
 import DropDownPage from './../pages/dropdown'; // 标签排序
@@ -90,11 +91,14 @@ const Routers = StackNavigator({
       gesturesEnabled: false,
     },
   },
-  Repository: { // 项目详情页
+  Repository: { // git项目详情页
     screen: RepositoryPage,
   },
   CustomKey: { // 自定义标签
     screen: CustomKeyPage,
+  },
+  AboutGitPopular: { // 关于 gitPopular
+    screen: AboutGitPopularPage,
   },
   SortKey: { // 标签排序
     screen: SortKeyPage,
