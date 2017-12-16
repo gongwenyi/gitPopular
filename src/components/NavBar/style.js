@@ -3,7 +3,8 @@ import { NAVBAR_BACKGROUND_COLOR } from './../../theme/color';
 
 const styles = StyleSheet.create({
   content: {
-    height: 40,
+    height: 70,
+    paddingTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: NAVBAR_BACKGROUND_COLOR,
@@ -21,21 +22,21 @@ const styles = StyleSheet.create({
   leftContainer: {
     position: 'absolute',
     left: 0,
-    height: '100%',
+    top: 20,
+    height: 50,
     paddingLeft: 12,
     paddingRight: 15,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: NAVBAR_BACKGROUND_COLOR,
   },
   rightContainer: {
     position: 'absolute',
     right: 0,
-    height: '100%',
+    top: 20,
+    height: 50,
     paddingRight: 5,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: NAVBAR_BACKGROUND_COLOR,
   },
   rightBtnContainerStyle: {
     height: '100%',

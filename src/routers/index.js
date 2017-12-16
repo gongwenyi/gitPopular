@@ -110,9 +110,9 @@ const Routers = StackNavigator({
   navigationOptions: {
     header: null, // 隐藏导航栏
   },
-  transitionConfig: () => (
-    { screenInterpolator: CardStackStyleInterpolator.forHorizontal }
-  ),
+  // transitionConfig: () => (
+  //   { screenInterpolator: CardStackStyleInterpolator.forHorizontal }
+  // ),
 });
 
 export default Routers;

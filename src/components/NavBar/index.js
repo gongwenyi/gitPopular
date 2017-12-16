@@ -70,10 +70,10 @@ export default class NavBar extends Component {
     return (
       <View>
         <StatusBar
-          backgroundColor={NAVBAR_BACKGROUND_COLOR}
+          translucent
+          backgroundColor="transparent"
           barStyle="light-content"
         />
-        { Platform.OS === 'ios' && <View style={{ height: 20, backgroundColor: NAVBAR_BACKGROUND_COLOR }} />}
         <View style={styles.content}>
           {/* 标题 */}
           <View style={styles.titleContainer}>

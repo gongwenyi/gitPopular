@@ -4,8 +4,8 @@ import { PAGE_BACKGROUND_COLOR, BUTTON_BACKGROUND_COLOR, DISABLED_BUTTON_BACKGRO
 const window = Dimensions.get('window');
 
 const PARALLAX_HEADER_HEIGHT = 300;
-const STICKY_HEADER_HEIGHT = Platform.OS === 'ios' ? 60 : 40;
-const PADDING_TOP = Platform.OS === 'ios' ? 20 : 0;
+const STICKY_HEADER_HEIGHT = 70;
+const PADDING_TOP = 20;
 
 const styles = StyleSheet.create({
   rootContainer: {

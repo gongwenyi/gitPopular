@@ -4,6 +4,7 @@ import { FlatList, View, Text, Image, TouchableOpacity, ActivityIndicator } from
 // import { bindActionCreators } from 'redux';
 // import * as orderActions from './../../reducers/order/actions';
 import ApiService from './../../api';
+import RowItem from './rowItem';
 import styles from './style';
 
 class PopularFlatList extends Component {
@@ -46,19 +47,7 @@ class PopularFlatList extends Component {
   // 渲染每一行数据
   _renderItem(item) {
     return (
-      <TouchableOpacity key={item.id} style={styles.item} onPress={() => this._handleItemPress(item)}>
-        <Text style={styles.title}>{item.full_name}</Text>
-        <Text style={styles.desc}>{item.description}</Text>
-        <View style={styles.bottom}>
-          <View style={styles.bottomItem}>
-            <Text style={styles.bottomText}>Author:  </Text>
-            <View style={styles.avatarContainer}>
-              <Image source={{ uri: item.owner.avatar_url }} style={styles.avatar} />
-            </View>
-          </View>
-          <Text style={styles.bottomText}>Stars:  {item.stargazers_count}</Text>
-        </View>
-      </TouchableOpacity>
+      <RowItem key={item.id} repository={item} handleItemPress={() => this._handleItemPress(item)} />
     );
   }
 

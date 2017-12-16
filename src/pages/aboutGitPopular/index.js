@@ -9,23 +9,41 @@ import {
   TouchableOpacity,
   StatusBar,
   Platform,
+  InteractionManager,
 } from 'react-native';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
+import ApiService from './../../api';
 import { Cell } from './../../components';
+import RowItem from './../popular/rowItem';
 import { NAVBAR_BACKGROUND_COLOR } from './../../theme/color';
 import { CommonImgs } from './../../theme/images';
 import styles from './style';
 
 const PARALLAX_HEADER_HEIGHT = 300;
-const STICKY_HEADER_HEIGHT = Platform.OS === 'ios' ? 60 : 40;
+const STICKY_HEADER_HEIGHT = 70;
 
 class Talks extends Component {
   constructor(props) {
     super(props);
-    this.state =  {
-
+    this.state = {
+      repository: '', // gitPopular仓库信息
     };
+  }
+
+  componentWillMount() {
+    InteractionManager.runAfterInteractions(async () => {
+      const repositoryInfo = await ApiService.Auth.getGitPopularInfo();
+      if (repositoryInfo) {
+        this.setState({ repository: repositoryInfo });
+      }
+    });
+  }
+
+  _renderRepository(repository) {
+    return (
+      <RowItem repository={repository} handleItemPress={() => this._aboutGitPopular(repository)} />
+    );
   }
 
   _handleBackClick() {
@@ -33,12 +51,18 @@ class Talks extends Component {
     goBack();
   }
 
+  _aboutGitPopular(repository) {
+    const { navigate } = this.props.navigation;
+    navigate('Repository', { title: repository.full_name, url: repository.html_url });
+  }
+
   render() {
     const { onScroll = () => {} } = this.props;
     return (
       <View style={styles.rootContainer}>
         <StatusBar
-          backgroundColor={NAVBAR_BACKGROUND_COLOR}
+          translucent
+          backgroundColor="transparent"
           barStyle="light-content"
         />
         <ParallaxScrollView
@@ -104,14 +128,10 @@ class Talks extends Component {
           )}
         >
           <View>
+            { this.state.repository ? this._renderRepository(this.state.repository) : null }
             <Cell
               onPress={() => {}}
-              leftIcon={<Icon name="md-desktop" size={22} color={NAVBAR_BACKGROUND_COLOR} />}
-              leftLabel="项目详情"
-            />
-            <Cell
-              onPress={() => {}}
-              leftIcon={<Icon name="md-person" size={22} color={NAVBAR_BACKGROUND_COLOR} />}
+              leftIcon={<Icon name="md-person" size={23} color={NAVBAR_BACKGROUND_COLOR} />}
               leftLabel="关于作者"
             />
           </View>

@@ -122,7 +122,7 @@ class Home extends Component {
           this.state.opened ?
             <View style={{ position: 'absolute', left: 0, top: 0, right: 0, bottom: 0, zIndex: 2 }}>
               <MenuContext
-                style={{ flexDirection: 'column', alignItems: 'flex-end', paddingTop: Platform.OS === 'ios' ? 60 : 40  }}
+                style={{ flexDirection: 'column', alignItems: 'flex-end', paddingTop: 60  }}
                 backHandler={() => this._customBackHandler()}
               >
                 <Menu
