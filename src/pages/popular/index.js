@@ -39,7 +39,7 @@ const optionsStyles = {
   },
 };
 
-class Home extends Component {
+class Popular extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -181,5 +181,5 @@ export default connect(
     nav: state.nav,
     popular: state.popular,
   }),
-)(Home);
+)(Popular);
 

@@ -50,7 +50,7 @@ const SINCE_MAP = [{
   name: '本月',
 }];
 
-class Home extends Component {
+class Trending extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -259,5 +259,5 @@ export default connect(
     nav: state.nav,
     popular: state.popular,
   }),
-)(Home);
+)(Trending);
 
