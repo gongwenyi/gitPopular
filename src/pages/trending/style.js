@@ -6,65 +6,63 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: PAGE_BACKGROUND_COLOR,
   },
-  tabs: {
-    height: 66,
-    paddingTop: 20,
+  navbarTitleContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#0194d9',
-  },
-  tab: {
-    flex: 1,
-    height: 46,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  tabActive: {
-    flex: 1,
-    height: 46,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderBottomWidth: 2,
-    borderBottomColor: '#f00',
-  },
-  tabText: {
+  navbarTitle: {
     color: '#fff',
+    fontSize: 18,
+  },
+  navbarTimeContainer: {
+    paddingLeft: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  navbarTime: {
+    color: '#fff',
+    fontSize: 14,
+  },
+  item: {
+    padding: 10,
+  },
+  title: {
+    fontSize: 16,
+    color: '#000',
+  },
+  desc: {
+    paddingVertical: 10,
+    fontSize: 14,
+    color: '#666',
+  },
+  bottom: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  bottomItem: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  bottomText: {
+    color: '#666',
+  },
+  avatarContainer: {
+    width: 20,
+    height: 20,
+    borderRadius: 20,
+    // backgroundColor: '#fff',
+    overflow: 'hidden',
+  },
+  avatar: {
+    width: 20,
+    height: 20,
+    borderRadius: Platform.OS === 'ios' ? 0 : 20,
   },
   line: {
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: '#aaa',
-  },
-  itemContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-  },
-  itemLeft: {
-    width: 46,
-    height: 46,
-    borderRadius: 46,
-    overflow: 'hidden',
-  },
-  itemCenter: {
-    flex: 1,
-    paddingHorizontal: 10,
-  },
-  itemRight: {
-    width: 60,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  avatar: {
-    width: 46,
-    height: 46,
-    borderRadius: Platform.OS === 'ios' ? 0 : 46,
-  },
-  nickName: {
-    fontSize: 13,
-  },
-  description: {
-    marginTop: 5,
-    fontSize: 12,
   },
   empty: {
     textAlign: 'center',

@@ -26,6 +26,13 @@ class Splash extends Component {
     } catch (err) {
       console.log(err);
     }
+    // 加载语言信息, 并写入 global
+    try {
+      const langs = await global.storage.load({ key: 'Langs' });
+      global.langs = langs;
+    } catch (err) {
+      console.log(err);
+    }
     SplashScreen.hide();
     this.props.navigation.navigate('Tabbar');
   }

@@ -73,6 +73,17 @@ class Home extends Component {
     this.setState({ tags });
   }
 
+  _renderRightContent() {
+    return (<View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+      <TouchableOpacity style={{ paddingHorizontal: 10 }}>
+        <Icon name="ios-search" size={26} color="#fff" />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => this._onTriggerPress()} style={{ paddingHorizontal: 18 }}>
+        <Icon name="md-more" size={30} color="#fff" />
+      </TouchableOpacity>
+    </View>);
+  }
+
   _onOptionSelect(value) {
     // alert(`Selected number: ${value}`);
     const { navigate } = this.props.navigation;
@@ -107,16 +118,7 @@ class Home extends Component {
         <NavBar
           hideBackBtn
           title="Popular"
-          rightContent={
-            <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-              <TouchableOpacity style={{ paddingHorizontal: 10 }}>
-                <Icon name="ios-search" size={26} color="#fff" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => this._onTriggerPress()} style={{ paddingHorizontal: 18 }}>
-                <Icon name="md-more" size={30} color="#fff" />
-              </TouchableOpacity>
-            </View>
-          }
+          rightContent={() => this._renderRightContent()}
         />
         {
           this.state.opened ?

@@ -5,6 +5,7 @@ import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
 
 import TAGS from './tags'; // 默认标签
+import LANGS from './langs'; // 默认语言
 
 // 创建数据持久化
 const storage = new Storage({
@@ -28,6 +29,13 @@ const storage = new Storage({
         resolve,
       } = params;
       resolve && resolve(TAGS);
+    },
+    // 语言相关
+    Langs(params) {
+      const {
+        resolve,
+      } = params;
+      resolve && resolve(LANGS);
     },
   },
 });

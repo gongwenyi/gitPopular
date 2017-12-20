@@ -3,6 +3,7 @@ package com.gitpopular;
 import android.os.Bundle; // here
 
 import com.facebook.react.ReactActivity;
+import com.umeng.analytics.MobclickAgent;
 
 import org.devio.rn.splashscreen.SplashScreen; // here
 
@@ -12,6 +13,15 @@ public class MainActivity extends ReactActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SplashScreen.show(this);  // here
         super.onCreate(savedInstanceState);
+    }
+
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
     /**

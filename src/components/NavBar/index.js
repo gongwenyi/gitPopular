@@ -26,6 +26,7 @@ export default class NavBar extends Component {
     nav: PropTypes.object, // react-navigation navigation
     backBtnClick: PropTypes.func, // 返回按钮点击事件
     title: PropTypes.string, // 导航栏标题
+    titleContent: PropTypes.func, // 导航栏标题区自定义内容
     rightBtnContainerStyle: ViewPropTypes.style, // 导航栏右侧按钮容器样式
     rightBtnText: PropTypes.string, // 导航栏右侧按钮文字
     rightBtnTextStyle: Text.propTypes.style, // 导航栏右侧按钮文字样式
@@ -33,7 +34,7 @@ export default class NavBar extends Component {
     rightBtnIcon: PropTypes.string, // 导航栏右侧按钮图标
     rightBtnIconStyle: Text.propTypes.style, // 导航栏右侧按钮图标样式
     rightBtnIconClick: PropTypes.func, // 导航栏右侧按钮图标点击事件
-    rightContent: PropTypes.element, // 导航栏右侧自定义内容
+    rightContent: PropTypes.func, // 导航栏右侧自定义内容
   };
 
   constructor(props) {
@@ -77,7 +78,10 @@ export default class NavBar extends Component {
         <View style={styles.content}>
           {/* 标题 */}
           <View style={styles.titleContainer}>
-            <Text numberOfLines={1} style={styles.title}>{this.props.title}</Text>
+            {/* 简单文字标题 */}
+            { this.props.title && <Text numberOfLines={1} style={styles.title}>{this.props.title}</Text> }
+            {/* 自定义标题区内容 */}
+            { this.props.titleContent && this.props.titleContent() }
           </View>
           {/* 返回按钮 */}
           {
@@ -114,9 +118,8 @@ export default class NavBar extends Component {
                 <Image source={this.props.rightBtnIcon} style={[styles.rightBtnIconStyle, this.props.rightBtnIconStyle]} />
               </TouchableOpacity>
             }
-            {
-              this.props.rightContent && this.props.rightContent
-            }
+            {/* 导航栏右侧自定义内容 */}
+            { this.props.rightContent && this.props.rightContent() }
           </View>
         </View>
       </View>

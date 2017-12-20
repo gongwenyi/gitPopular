@@ -12,6 +12,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "SplashScreen.h"  // here
+#import "UMMobClick/MobClick.h"
 
 @implementation AppDelegate
 
@@ -26,6 +27,10 @@
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
+  
+  UMConfigInstance.appKey = @"5a39e263a40fa3751900007e";
+  UMConfigInstance.ChannelId = @"App Store";
+  [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
